@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="copilot">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span>EP</span><span class="plus">+</span></div>
+      <div>
+        <strong class="brand-title brand-anim">EDUPATH<span class="plus">+</span></strong>
+        <div class="small" data-identity></div>
+      </div>
+    </div>
+    <div class="top-actions">
+<button class="mobile-toggle" id="btn-sidebar-toggle" type="button" aria-label="Menu">☰</button>
+      <span class="small muted" id="copilot-feedback"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" data-sidebar></aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>Academic Copilot</h2>
+        <p class="muted small">Your daily plan + risk score, generated from your activity (tasks, resources, Q&amp;A).</p>
+
+        <div class="grid-3 mt">
+          <div class="card mini-card">
+            <div class="small muted">Risk score</div>
+            <div class="stat" id="risk-score">—</div>
+            <div class="small muted" id="risk-band">—</div>
+          </div>
+          <div class="card mini-card">
+            <div class="small muted">Recent activity</div>
+            <div class="small" id="activity-summary">—</div>
+          </div>
+          <div class="card mini-card">
+            <div class="small muted">Actions</div>
+            <div class="actions">
+              <button class="btn btn-primary" id="btn-generate" type="button">Generate plan</button>
+        <div class="coach-toggle" id="coach-mode">
+          <span class="coach-label">Coach Mode:</span>
+          <label class="coach-pill"><input type="radio" name="coachMode" value="calm" checked> Calm</label>
+          <label class="coach-pill"><input type="radio" name="coachMode" value="intense"> Intense</label>
+          <label class="coach-pill"><input type="radio" name="coachMode" value="competitive"> Competitive</label>
+        </div>
+
+              <button class="btn" id="btn-refresh" type="button">Refresh</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="copilot-card" id="weekly-dashboard">
+          <div class="copilot-card-title">Weekly Performance</div>
+          <div class="dash-grid">
+            <div class="dash-item"><div class="dash-k">Streak</div><div class="dash-v" id="dash-streak">0 days</div></div>
+            <div class="dash-item"><div class="dash-k">Micro-tasks</div><div class="dash-v" id="dash-micro">0/0</div></div>
+            <div class="dash-item"><div class="dash-k">Q&A (7d)</div><div class="dash-v" id="dash-qa">0</div></div>
+            <div class="dash-item"><div class="dash-k">Resources (7d)</div><div class="dash-v" id="dash-res">0</div></div>
+            <div class="dash-item"><div class="dash-k">Coach</div><div class="dash-v" id="dash-coach">calm</div></div>
+          </div>
+          <div class="muted small" id="dash-note">Generate a plan to refresh your weekly stats.</div>
+        </div>
+
+        <div class="copilot-card" id="performance-graph">
+          <div class="copilot-card-title">Performance Graph (7 days)</div>
+          <canvas id="perf-canvas" width="900" height="220" style="width:100%;height:220px;"></canvas>
+          <div id="graph-status" class="muted">Updated ✓</div>
+          <div class="muted small" id="perf-note">Micro-tasks completed per day.</div>
+        </div>
+
+      
+      <div id="prediction-box" class="mt"></div>
+    </section>
+
+
+      <section class="card mt">
+        <div class="row-between">
+          <h3>Your Daily Study Plan</h3>
+          <div class="small muted">Powered by Groq</div>
+        </div>
+        <pre id="plan-output" class="study-plan">Click “Generate plan”.</pre>
+        <div class="small muted mt" id="plan-note"></div>
+      </section>
+
+      <!-- ✅ Today’s Plans (last 5) -->
+      <section class="card mt" id="today-plans-card">
+        <div class="row-between">
+          <h3>Today’s Plans</h3>
+          <div class="small muted">Tap to load</div>
+        </div>
+        <div class="small muted" style="margin:6px 0 10px;">Latest is at the top. Loading a plan updates the plan + why + micro-tasks.</div>
+        <div id="today-plans-list" class="plans-list"></div>
+      </section>
+
+      <section class="card mt">
+        <h3>Why this plan</h3>
+        <ul id="why-plan-list" class="mini"></ul>
+      </section>
+
+
+      <section class="card mt">
+        <div class="row-between">
+          <h3>Micro-tasks</h3>
+          <div class="small muted">Tick to build your streak</div>
+        </div>
+        <div id="micro-task-list" class="microtasks"></div>
+        <div class="small muted mt">Tip: completing at least 1 micro-task per day increases your streak.</div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

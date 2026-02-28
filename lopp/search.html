@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="search">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span>EP</span><span class="plus">+</span></div>
+      <div>
+        <strong>Search</strong>
+        <div class="small" data-identity></div>
+      </div>
+    </div>
+    <div class="top-actions">
+<button class="mobile-toggle" id="btn-sidebar-toggle" type="button" aria-label="Menu">☰</button>
+      <span class="small muted" id="search-feedback"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" data-sidebar></aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>Find people and chatrooms</h2>
+        <p class="muted small">Search returns profiles and chatrooms you can access. Profiles only show safe public info.</p>
+
+        <div class="grid-3 mt">
+          <div>
+            <label class="label">Search</label>
+            <input id="search-query" class="input" placeholder="Type a name, department, or room..." />
+          </div>
+          <div>
+            <label class="label">Type</label>
+            <select id="search-type" class="input">
+              <option value="">All</option>
+              <option value="profiles">People</option>
+              <option value="chatrooms">Chatrooms</option>
+            </select>
+          </div>
+          <div>
+            <label class="label">Department</label>
+            <select id="search-dept" class="input">
+              <option value="">All Departments</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-2 mt">
+        <section class="card">
+          <h3>Results</h3>
+          <div id="search-results" class="list"></div>
+        </section>
+
+        <section id="search-details"></section>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

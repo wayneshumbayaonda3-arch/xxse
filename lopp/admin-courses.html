@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="admin-courses">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span>EP</span><span class="plus">+</span></div>
+      <div>
+        <strong class="brand-title brand-anim">EDUPATH<span class="plus">+</span></strong>
+        <div class="small" data-identity></div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="mobile-toggle" id="btn-sidebar-toggle" type="button" aria-label="Menu">☰</button>
+<button class="btn btn-ghost" id="btn-logout" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" data-sidebar></aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>Assign Courses by Department & Part</h2>
+        <p class="muted small">Admins manage the official course list. Students can only enroll in courses for their own department and part (plus up to 3 manual courses).</p>
+
+        <div class="grid-3 mt">
+          <div>
+            <label class="label">Department</label>
+            <select class="input" id="admin-course-dept"></select>
+          </div>
+          <div>
+            <label class="label">Part</label>
+            <select class="input" id="admin-course-part">
+              <option value="1.1">1.1</option><option value="1.2">1.2</option>
+              <option value="2.1">2.1</option><option value="2.2">2.2</option>
+              <option value="3.1">3.1</option><option value="3.2">3.2</option>
+              <option value="4.1">4.1</option><option value="4.2">4.2</option>
+              <option value="PG">Post Grad</option>
+            </select>
+          </div>
+          <div class="actions align-end">
+            <button class="btn" id="btn-load-courses" type="button">Load</button>
+          </div>
+        </div>
+
+        <hr class="mt" />
+
+        <form id="admin-add-course" class="grid-4 mt">
+          <div>
+            <label class="label">Course Code</label>
+            <input class="input" id="course-code" required placeholder="e.g. CS101" />
+          </div>
+          <div>
+            <label class="label">Course Name</label>
+            <input class="input" id="course-title" required placeholder="e.g. Programming 1" />
+          </div>
+          <div>
+            <label class="label">Lecturer (optional)</label>
+            <input class="input" id="course-lecturer" placeholder="e.g. Dr Moyo" />
+          </div>
+          <div class="actions align-end">
+            <button class="btn btn-primary" type="submit">Add / Update</button>
+          </div>
+        </form>
+
+        <div class="mt">
+          <div class="row-between">
+            <h3>Courses</h3>
+            <span class="small muted" id="admin-course-status"></span>
+          </div>
+          <div id="admin-course-list" class="list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

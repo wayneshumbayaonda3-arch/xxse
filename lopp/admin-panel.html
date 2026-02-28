@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EDUPATH+</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/background-overrides.css"></head>
+<body data-page="adminPanel"><header class="topbar"><div class="brand"><div class="logo"><span>EP</span><span class="plus">+</span></div><div><strong>Admin Control Panel</strong><div class="small" data-identity></div></div></div></header>
+<div class="layout"><aside class="sidebar" data-sidebar></aside><main class="main">
+<section class="grid cards"><article class="card"><h3>User Metrics</h3><p>Active sessions: <strong id="active-users-count">0</strong></p><p>Total known users: <strong id="known-users-count">0</strong></p></article></section>
+<section class="grid" style="grid-template-columns:1.15fr 1fr"><article class="card"><h3>Platform Customization</h3><form id="customization-form"><label>Welcome text</label><textarea id="admin-welcome"></textarea><label>Dashboard banner</label><input id="admin-banner"><label>Announcement</label><textarea id="admin-announcement"></textarea>
+
+  <hr style="margin:14px 0;opacity:.35">
+  <h4 style="margin:0 0 8px">Background Images</h4>
+  <p class="muted small" style="margin:0 0 10px">Upload an image and choose which panel(s) it applies to. You can set different images per panel.</p>
+  <label>Upload background image</label>
+  <input type="file" id="admin-bg" accept="image/*">
+  <div class="actions" style="margin-top:10px">
+    <label><input type="checkbox" class="bg-target" value="index"> Home</label>
+    <label><input type="checkbox" class="bg-target" value="dashboard"> Student Dashboard</label>
+    <label><input type="checkbox" class="bg-target" value="admin-panel"> Admin Panel</label>
+    <label><input type="checkbox" class="bg-target" value="adminLogin"> Admin Sign In</label>
+    <label><input type="checkbox" class="bg-target" value="chatrooms"> Chatrooms</label>
+    <label><input type="checkbox" class="bg-target" value="resources"> Resources Hub</label>
+    <label><input type="checkbox" class="bg-target" value="qa"> Q&amp;A</label>
+    <label><input type="checkbox" class="bg-target" value="tasks"> Tasks</label>
+    <label><input type="checkbox" class="bg-target" value="catalog"> Course Catalog</label>
+    <label><input type="checkbox" class="bg-target" value="support"> Help &amp; Support</label>
+  </div>
+  <div class="actions" style="margin-top:10px;align-items:center;gap:10px">
+    <button class="btn secondary" type="button" id="clear-selected-bgs">Clear selected panel backgrounds</button>
+    <span class="muted small" id="bg-status"></span>
+  </div>
+
+  <hr style="margin:14px 0;opacity:.35">
+  <h4 style="margin:0 0 8px">Feature Visibility</h4>
+  <p class="muted small" style="margin:0 0 10px">These checkboxes control what students can see on the sidebar.</p>
+  <div class="actions"><label><input type="checkbox" id="chat-toggle"> Chat</label><label><input type="checkbox" id="resources-toggle"> Resources</label><label><input type="checkbox" id="qa-toggle"> Q&amp;A</label><label><input type="checkbox" id="tasks-toggle"> Tasks</label></div>
+
+  <button class="btn" type="submit">Save Settings</button></form></article><article class="card"><h3>Manage Departments & Courses</h3><form id="department-form"><label>Department</label><input id="new-department" required><label>Course code (optional)</label><input id="new-course-code"><label>Course name (optional)</label><input id="new-course-name"><button class="btn" type="submit">Add / Update</button></form><hr><form id="rename-dept-form"><label>Rename department</label><select id="rename-source"></select><label>New name</label><input id="rename-target" required><button class="btn secondary" type="submit">Rename</button></form><form id="delete-dept-form"><label>Delete department</label><select id="delete-department"></select><button class="btn warn" type="submit">Delete Department</button></form></article></section>
+<section class="grid">
+  <details class="card" open><summary><strong>Resource Approval</strong></summary><div class="table-wrap"><table class="table"><thead><tr><th>Title</th><th>Department</th><th>Author</th><th>Status</th><th>Action</th></tr></thead><tbody id="pending-resources"></tbody></table></div></details>
+  <details class="card"><summary><strong>Q&A Moderation</strong></summary><div class="table-wrap"><table class="table"><thead><tr><th>Question</th><th>Room</th><th>Department</th><th>Status</th><th>Action</th></tr></thead><tbody id="qa-moderation"></tbody></table></div></details>
+  <details class="card"><summary><strong>Chat Moderation</strong></summary><div class="table-wrap"><table class="table"><thead><tr><th>Sender</th><th>Room</th><th>Message</th><th>Action</th></tr></thead><tbody id="chat-moderation"></tbody></table></div></details>
+  <details class="card"><summary><strong>Chatroom Management</strong></summary><div class="table-wrap"><table class="table"><thead><tr><th>Room</th><th>Code</th><th>Members</th><th>Owner</th><th>Action</th></tr></thead><tbody id="room-management"></tbody></table></div></details>
+    <details class="card"><summary><strong>User Management</strong></summary>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0;">
+      <input id="user-search" placeholder="Search users (name, reg, username, dept)..." style="flex:1;min-width:220px;" />
+      <span class="small muted" id="user-search-meta"></span>
+    </div>
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr><th>Name</th><th>Department</th><th>Part</th><th>Registration</th><th>Username</th><th style="width:280px;">Actions</th></tr>
+        </thead>
+        <tbody id="user-table"></tbody>
+      </table>
+    </div>
+  </details>
+  <details class="card"><summary><strong>Security</strong></summary><div class="table-wrap"><table class="table"><thead><tr><th>Identity</th><th>Area</th><th>Attempts</th><th>Last Attempt</th><th>Action</th></tr></thead><tbody id="security-table"></tbody></table></div></details>
+  <details class="card"><summary><strong>Activity Logs</strong></summary><div class="table-wrap"><table class="table"><thead><tr><th>Timestamp</th><th>Actor</th><th>Action</th><th>Actions</th></tr></thead><tbody id="activity-logs"></tbody></table></div></details>
+</section>
+<section class="card" id="public-hit-catalog-admin">
+  <h3>Public HIT Catalogue (Faculty Only)</h3>
+  <p class="muted">This table controls what non-logged-in visitors see on the Course Catalog page.</p>
+
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0;">
+    <button class="btn" id="hit-cat-add">+ Add programme</button>
+    <button class="btn danger" id="hit-cat-delete">Delete selected</button>
+    <button class="btn primary" id="hit-cat-save">Save changes</button>
+    <span id="hit-cat-msg" class="muted"></span>
+  </div>
+
+  <div style="overflow:auto;">
+    <table class="simple-table">
+      <thead>
+        <tr>
+          <th style="width:42px;"></th>
+          <th>Code</th>
+          <th>Programme</th>
+          <th>Duration</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+      <tbody id="hit-cat-body"></tbody>
+    </table>
+  </div>
+</section>
+
+</main></div>
+<script src="assets/js/core.js"></script><script src="assets/js/app.js"></script></body></html>

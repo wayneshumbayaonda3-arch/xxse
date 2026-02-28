@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" data-sidebar></aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="row-between">
+          <div class="row">
+            <div class="logo"><span>EP</span><span class="plus">+</span></div>
+            <strong class="brand-title brand-anim">EDUPATH<span class="plus">+</span></strong>
+          </div>
+          <div class="top-actions">
+<button class="btn btn-ghost" id="btn-logout" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>Inbox</h2>
+        <p class="muted small">Your private messages.</p>
+
+        <div class="grid-3 mt">
+          <div>
+            <label class="label">Search people</label>
+            <input class="input" id="dm-search" placeholder="Search name/username..." />
+          </div>
+          <div class="actions align-end">
+            <button class="btn btn-primary" id="btn-dm-search" type="button">Search</button>
+          </div>
+        </div>
+
+        <div id="dm-search-results" class="list mt"></div>
+
+        <hr class="mt" />
+        <h3>Conversations</h3>
+        <div id="dm-thread-list" class="list"></div>
+      </section>
+
+      <section class="card mt" id="dm-chat-card" style="display:none;">
+        <div class="row-between">
+          <h3 id="dm-title">Chat</h3>
+          <button class="btn btn-ghost" id="btn-dm-close" type="button">Close</button>
+        </div>
+        <div id="dm-messages" class="list mt" style="max-height:420px; overflow:auto;"></div>
+        <form id="dm-send-form" class="grid-3 mt">
+          <input class="input" id="dm-text" placeholder="Type a message..." />
+          <div class="actions align-end">
+            <button class="btn btn-primary" type="submit">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

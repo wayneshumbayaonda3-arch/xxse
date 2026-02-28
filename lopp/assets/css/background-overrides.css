@@ -1,0 +1,60 @@
+/* Background visibility overrides
+   Purpose: let panel background images show through while keeping content readable.
+   Safe additive file loaded after main styles.css.
+*/
+
+:root{
+  --ep-panel-bg: rgba(255,255,255,0.86);
+  --ep-panel-bg-strong: rgba(255,255,255,0.92);
+  --ep-border: rgba(0,0,0,0.10);
+  --ep-shadow: 0 10px 30px rgba(0,0,0,0.14);
+}
+
+/* Ensure body background images are actually visible */
+html, body { height: 100%; }
+body{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Make the big layout canvases transparent so the body background can be seen */
+.layout, .main { background: transparent !important; }
+
+/* Keep navigation readable while allowing background to be visible */
+.topbar{
+  background: var(--ep-panel-bg-strong) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ep-border);
+}
+.sidebar{
+  background: var(--ep-panel-bg-strong) !important;
+  backdrop-filter: blur(8px);
+  border-right: 1px solid var(--ep-border);
+}
+
+/* The "white banner/canvas" areas users complain about */
+.banner, .card, .cards .card, .modal-card, .panel, .content-card, .table-wrap, .box, .sheet, .paper{
+  background: var(--ep-panel-bg) !important;
+  border: 1px solid var(--ep-border);
+  box-shadow: var(--ep-shadow);
+}
+
+/* Tables often have hard white backgrounds */
+table, thead, tbody, tr, td, th{
+  background: transparent;
+}
+.table-wrap table, .table table{
+  background: var(--ep-panel-bg) !important;
+}
+
+/* Inputs should stay solid for readability */
+input, select, textarea{
+  background: rgba(255,255,255,0.96) !important;
+}
+
+/* Fallback: any element explicitly forcing white background becomes translucent */
+[style*="background: white"], [style*="background:#fff"], [style*="background: #fff"], [style*="background-color: white"], [style*="background-color:#fff"], [style*="background-color: #fff"]{
+  background: var(--ep-panel-bg) !important;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="mycourses">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span>EP</span><span class="plus">+</span></div>
+      <div>
+        <strong class="brand-title brand-anim">EDUPATH<span class="plus">+</span></strong>
+        <div class="small" data-identity></div>
+      </div>
+    </div>
+    <div class="top-actions">
+<button class="mobile-toggle" id="btn-sidebar-toggle" type="button" aria-label="Menu">☰</button>
+      <span class="small muted" id="courses-feedback"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" data-sidebar></aside>
+
+    <main class="main">
+      <section class="card">
+        <h2>My Courses / Modules</h2>
+        <p class="muted small">
+          Add the courses you are taking. Copilot uses this to generate study plans even if you haven’t uploaded anything.
+        </p>
+
+        <div class="grid-3 mt">
+          <div class="card mini-card">
+            <div class="small muted">Add a course</div>
+            <div class="mt">
+              <label class="small muted">Course code</label>
+              <input class="input" id="course-code" placeholder="e.g. CS101" />
+            </div>
+            <div class="mt">
+              <label class="small muted">Course title</label>
+              <input class="input" id="course-title" placeholder="e.g. Introduction to Programming" />
+            </div>
+            <div class="mt">
+              <label class="small muted">Department (optional)</label>
+              <input class="input" id="course-dept" placeholder="e.g. Computer Science" />
+            </div>
+            <div class="mt">
+              <button class="btn btn-primary" id="btn-add-course" type="button">Add</button>
+            </div>
+            <div class="small muted mt">
+              Tip: You can add only the code + title for now.
+            </div>
+          </div>
+
+          <div class="card mini-card" style="grid-column: span 2;">
+            <div class="row-between">
+              <div>
+                <div class="small muted">Enrolled courses</div>
+                <div class="small muted" id="courses-count">—</div>
+              </div>
+              <button class="btn" id="btn-refresh-courses" type="button">Refresh</button>
+            </div>
+
+            <div class="mt" id="courses-list"></div>
+          </div>
+        </div>
+      <div class="mt small muted">Manual enroll limit: you can add up to <strong>3</strong> personal courses.</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

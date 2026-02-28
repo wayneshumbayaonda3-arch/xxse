@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EDUPATH+</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/background-overrides.css"></head>
+<body data-page="resources"><header class="topbar"><div class="brand"><div class="logo"><span>EP</span><span class="plus">+</span></div><div><strong>Academic Resource Hub</strong><div class="small" data-identity></div></div></div></header>
+<div class="layout"><aside class="sidebar" data-sidebar></aside><main class="main"><div class="announcement" data-announcement></div><section class="grid" style="grid-template-columns:1.1fr 1fr"><article class="card"><h3>Upload Academic Document</h3><form id="resource-form"><label>Title</label><input id="resource-title" required><label>Department</label><select id="resource-department"></select><label>Course</label><select id="resource-course"></select><label>Document</label><input type="file" id="resource-file" required><button class="btn" type="submit">Upload for Approval</button></form></article><article class="card"><h3>Search Approved Resources</h3><input id="resource-search" placeholder="Search title, file, author"><select id="resource-filter-department"></select><select id="resource-filter-course"></select><div id="resource-list" class="resource-list"></div></article>
+<hr class="mt" />
+<h3>Saved Docs</h3>
+<p class="muted small">Your saved resources (💾).</p>
+<div id="saved-resource-list" class="list"></div>
+
+      </section></main></div>
+<script src="assets/js/core.js"></script><script src="assets/js/app.js"></script></body></html>

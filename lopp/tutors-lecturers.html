@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/background-overrides.css">
+</head>
+<body data-page="tutors">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span>EP</span><span class="plus">+</span></div>
+      <div>
+        <strong>Tutors / Lecturers</strong>
+        <div class="small" data-identity></div>
+      </div>
+    </div>
+    <div class="top-actions">
+<button class="mobile-toggle" id="btn-sidebar-toggle" type="button" aria-label="Menu">☰</button>
+      <span class="small muted" id="tutors-feedback"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" data-sidebar></aside>
+
+    <main class="main">
+      <section class="panel">
+        <div class="toolbar">
+          <div class="field">
+            <label class="small muted" for="tutors-search">Search</label>
+            <input id="tutors-search" type="search" placeholder="Search tutors/lecturers by name or reg number">
+          </div>
+          <div class="field">
+            <label class="small muted" for="tutors-filter-dept">Department</label>
+            <select id="tutors-filter-dept"></select>
+          </div>
+          <div class="field">
+            <label class="small muted" for="tutors-filter-role">Role</label>
+            <select id="tutors-filter-role"></select>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <section class="card">
+          <h3>People</h3>
+          <div id="tutors-list" class="list"></div>
+        </section>
+
+        <section id="tutors-details"></section>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EDUPATH+</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/background-overrides.css"></head>
+<body data-page="chatrooms">
+<header class="topbar"><div class="brand"><div class="logo"><span>EP</span><span class="plus">+</span></div><div><strong>Department & Cross-Department Chat</strong><div class="small" data-identity></div></div></div></header>
+<div class="layout"><aside class="sidebar" data-sidebar></aside><main class="main"><div class="announcement" data-announcement></div>
+<section class="grid cards">
+  <article class="card" id="create-room-card"><h3>Create Chatroom</h3><form id="create-room-form"><label>Room name</label><input id="new-room-name" required><button class="btn" type="submit">Create Room + Code</button></form></article>
+  <article class="card" id="join-room-card"><h3>Join Chatroom by Code</h3><form id="join-room-form"><label>Room code</label><input id="join-room-code" required><button class="btn secondary" type="submit">Join with Code</button></form></article>
+</section>
+<section class="grid" style="grid-template-columns:2fr 1fr">
+  <article class="card" id="chatrooms-card"><div class="row-between"><h3>Chatroom Messaging</h3><div class="row"><button class="btn secondary" id="btn-chat-minimize" type="button">▁ Minimize</button><button class="btn secondary" id="btn-chat-fullscreen" type="button">⤢ Fullscreen</button></div></div><form id="chat-form"><label>Chatroom</label><select id="chat-room"></select><p id="reply-indicator" class="small"></p><label>Message</label><textarea id="chat-message"></textarea><label>Attach document/image</label><input type="file" id="chat-file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt"><label>Voice note upload</label><input type="file" id="chat-audio" accept="audio/*"><button class="btn" id="chat-submit" type="submit">Send Message</button></form><div id="chat-list" class="message-list"></div></article>
+  <article class="card"><h3>Create Task in Room</h3><form id="task-inline-form"><label>Room</label><select id="task-room"></select><label>Task title</label><input id="task-title" required><label>Deadline</label><input type="datetime-local" id="task-deadline" required><button class="btn" type="submit">Create Task</button></form></article>
+</section></main></div>
+<script src="assets/js/core.js"></script><script src="assets/js/app.js"></script>
+</body></html>

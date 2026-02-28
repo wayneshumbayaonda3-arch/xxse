@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUPATH+</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="index">
+  <header class="topbar">
+    <div class="brand"><div class="logo"><span>EP</span><span class="plus">+</span></div><div><strong class="brand-title brand-anim">EDUPATH<span class="plus">+</span></strong><div class="small">Student Collaboration & Academic Support Platform</div></div></div>
+    <a class="btn secondary" href="system-instructions.html">System Instructions</a>
+  
+  <nav data-public-nav class="actions"></nav>
+</header>
+  <main class="main">
+    <section class="banner"><h1>Choose your portal access</h1><p>Institutional collaboration, academic support, and governance in one ecosystem.</p></section>
+    <section class="grid cards">
+      <article class="card">
+        <h3>Student Access</h3>
+        <form id="student-form">
+          <label>Mode</label>
+          <select id="student-mode"><option value="new">New registration</option><option value="existing">Existing user login</option></select>
+          <div id="registration-fields">
+          <label>Name</label><input id="student-name" required />
+          <label>Department</label><select id="student-department"></select>
+          <label>Part</label><select id="student-part"></select>
+          </div>
+          <label>Registration Number</label><input id="student-reg" required /><p class="small">For existing accounts: use username + registration number + password.</p>
+          <label>Email (optional for login)</label><input id="student-username" placeholder="Optional: h240125b@hit.ac.zw" />
+          <label>Password</label><input id="student-password" type="password" required />
+          <button class="btn" type="submit">Enter Student Dashboard</button>
+        </form>
+      </article>
+      <article class="card"><h3>Admin Sign In</h3><p class="small">Faculty governance, moderation, and platform customization tools.</p><button id="admin-shortcut" class="btn">Go to Admin Login</button></article>
+      <article class="card"><h3>Course Catalog</h3><a class="btn secondary" href="course-catalog.html">Open Catalog</a></article>
+      <article class="card"><h3>Help & Support</h3><a class="btn secondary" href="help-support.html">Open Support</a></article>
+    </section>
+  </main>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/app.js"></script>
+<div class="cookie-banner" id="cookie-banner" style="display:none;">
+  <div class="cookie-card">
+    <strong>We use cookies</strong>
+    <p class="small muted">We use cookies and similar technologies to help our site work, improve user experience, and analyze traffic. You can accept or reject. If you reject, you will not be able to sign in.</p>
+    <div class="actions">
+      <button class="btn btn-ghost" id="cookie-reject" type="button">Reject</button>
+      <button class="btn btn-primary" id="cookie-accept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
